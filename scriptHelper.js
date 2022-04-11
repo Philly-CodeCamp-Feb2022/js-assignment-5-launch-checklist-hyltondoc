@@ -122,17 +122,26 @@ let cargoLevelInput = form.elements[3];//document.querySelector("input[name=carg
 document.addEventListener("submit", event=>{
 
 formSubmission(pilotInput, copilotInput, fuelLevelInput, cargoLevelInput);
-event.preventDefault();
+//event.preventDefault();
 });
+
+// let pilotName = form.elements[0].value;
+// let copilotName= form.elements[1].value;
+// let fuelLevelVolume = form.elements[2].value;
+// let cargoLevelKg = form.elements[3].value;
+
+
+
+document.addEventListener("submit", event=>{
+
+// if ((pilotName === "") || (copilotName === "") || (fuelLevelVolume === "") || (cargoLevelKg === "")){
+//         document.getElementById("launchStatus").innerHTML = "Awaiting All Information for Launch";
+//     }
 
 let pilotName = form.elements[0].value;
 let copilotName= form.elements[1].value;
 let fuelLevelVolume = form.elements[2].value;
 let cargoLevelKg = form.elements[3].value;
-
-
-
-document.addEventListener("submit", event=>{
 
 if (Number(fuelLevelVolume) < 10000){
     document.getElementById("faultyItems").style.visibility = "visible";
@@ -154,7 +163,7 @@ document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilotName} is
 document.getElementById('cargoStatus').innerHTML = 'Cargo mass is too high for Launch';
 }
 
-if ((Number(cargoLevelKg) < 10000) && (Number(fuelLevelVolume) > 10000) && (Number(cargoLevelKg) > 0)){
+if ((Number(cargoLevelKg) < 10000) && (Number(fuelLevelVolume) > 10000) && (Number(cargoLevelKg) > 0) && (cargoLevelKg != "")){
     document.getElementById("faultyItems").style.visibility = "visible";
     document.getElementById("launchStatus").style.color= "green";
     document.getElementById("launchStatus").innerHTML = "Shuttle Ready For Launch";
